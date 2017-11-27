@@ -1,0 +1,5 @@
+<li class="list-group-item" [ngClass]="{'my-message': selfMessage(), 'not-my-message': !selfMessage()}">
+  <p><strong>{{ mensagem['author'] }}</strong></p>
+  <p>{{ mensagem['message'] }}</p>
+  <p>{{ mensagem['time'] | date:"MM/dd/yyy HH:mm:ss a" }}</p>
+</li>
