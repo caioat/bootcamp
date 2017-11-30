@@ -9,7 +9,8 @@ import { Component, AfterViewChecked, AfterViewInit, ViewChild, ElementRef} from
 export class ChatComponent implements AfterViewChecked, AfterViewInit {
 
   public mensagens: Object[] = [];
-  public mensagemInserir: string;
+  public mensagemInserir: string = '';
+
 
   @ViewChild('scrollMe') private scrollContainer: ElementRef;
 
@@ -38,5 +39,11 @@ export class ChatComponent implements AfterViewChecked, AfterViewInit {
     this._chatService.server.emit('messages', obj);
 
     this.mensagemInserir = '';
+  }
+
+  public checkKeyPressed(keyboardEvent: KeyboardEvent): void {
+    if (this.mensagemInserir.length > 0 && keyboardEvent.keyCode === 13 && keyboardEvent.shiftKey === false) {
+      this.enviaMensagem();
+    }
   }
 }
