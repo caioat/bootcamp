@@ -1,7 +1,9 @@
 .my-message {
-  background: lightgreen
+  background: lightgreen;
+  text-align: right
 }
 
 .not-my-message {
-  background: lightcoral
+  background: lightcoral;
+  text-align: left
 }

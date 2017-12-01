@@ -5,8 +5,8 @@
 
 <textarea placeholder="Escreva sua mensagem aqui..." rows="5"
           [(ngModel)]="mensagemInserir"
-          (keydown)="checkKeyPressed($event)"
-          (keyup)="checkKeyPressed($event)">
+          (keydown)="onKeyDown($event)"
+          (keyup)="onKeyUp($event)">
 </textarea>
 
 <p>Número de caracteres: {{ mensagemInserir.length }}</p>

@@ -41,9 +41,16 @@ export class ChatComponent implements AfterViewChecked, AfterViewInit {
     this.mensagemInserir = '';
   }
 
-  public checkKeyPressed(keyboardEvent: KeyboardEvent): void {
-    if (this.mensagemInserir.length > 0 && keyboardEvent.keyCode === 13 && keyboardEvent.shiftKey === false) {
+  public onKeyDown(keyboardEvent: KeyboardEvent): void {
+    if (keyboardEvent.keyCode === 13 && keyboardEvent.shiftKey === false) {
+      console.log(keyboardEvent);
       this.enviaMensagem();
+    }
+  }
+
+  public onKeyUp(keyboardEvent: KeyboardEvent): void {
+    if (keyboardEvent.keyCode === 13 && keyboardEvent.shiftKey === false) {
+      this.mensagemInserir = '';
     }
   }
 }

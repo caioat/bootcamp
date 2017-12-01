@@ -6,8 +6,8 @@ export class ChatService {
 
   private usuario: string;
   private logTime: Date;
-  // private serverURL: string = 'http://bootcamp.us-east-1.elasticbeanstalk.com/';
-  private serverURL: string = 'http://172.24.30.24:3000/';
+  private serverURL: string = 'http://bootcamp.us-east-1.elasticbeanstalk.com/';
+  //private serverURL: string = 'http://172.24.30.24:3000/';
   public server: any;
 
   get nomeUsuario(): string {
