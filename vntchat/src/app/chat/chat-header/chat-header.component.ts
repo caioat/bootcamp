@@ -23,8 +23,17 @@ export class ChatHeaderComponent implements OnInit {
     this.logTime = this._chatService.loggedTime;
   }
 
+  private clearUserInfo(): void {
+    this.usuario = null;
+    this.logTime = null;
+  }
+
   public logout(): void {
     sessionStorage.removeItem('nome');
+    this.clearUserInfo();
+  }
+
+  public login(): void {
     this._chatService.logIn();
     this.fillUserInfo();
   }

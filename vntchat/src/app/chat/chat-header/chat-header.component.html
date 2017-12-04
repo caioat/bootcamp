@@ -5,5 +5,12 @@
 
   <a [routerLink]="'/chat'">Chat</a>
   <a [routerLink]="'/sobre'">Sobre</a>
-  <button class="btn btn-primary" style="float: right;" (click)="logout()">Logout</button>
+  <div *ngIf="usuario != null;then showLogoutButton else showLoginButton"></div>
+
+  <ng-template #showLogoutButton>
+      <button class="btn btn-primary" style="float: right;" (click)="logout()">Logout</button>
+  </ng-template>
+  <ng-template #showLoginButton>
+      <button class="btn btn-primary" style="float: right;" (click)="login()">Login</button>
+  </ng-template>
 </div>

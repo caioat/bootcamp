@@ -20,6 +20,7 @@ export class ChatService {
 
   constructor() {
     this.logIn();
+    this.server = io(this.serverURL);
   }
 
   public logIn(): void {
@@ -31,7 +32,11 @@ export class ChatService {
 
     this.logTime = new Date();
     sessionStorage.setItem('nome', this.usuario);
+  }
 
-    this.server = io(this.serverURL);
+  public logout(): void {
+    sessionStorage.removeItem('nome');
+    this.usuario = null;
+    this.logTime = null;
   }
 }
