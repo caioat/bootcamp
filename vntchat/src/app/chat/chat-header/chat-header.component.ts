@@ -12,11 +12,20 @@ export class ChatHeaderComponent implements OnInit {
   public logTime: Date;
 
   constructor(private _chatService: ChatService) {
-    this.usuario = _chatService.nomeUsuario;
-    this.logTime = _chatService.loggedTime;
-    }
+    this.fillUserInfo();
+  }
 
   ngOnInit() {
   }
 
+  private fillUserInfo(): void {
+    this.usuario = this._chatService.nomeUsuario;
+    this.logTime = this._chatService.loggedTime;
+  }
+
+  public logout(): void {
+    sessionStorage.removeItem('nome');
+    this._chatService.logIn();
+    this.fillUserInfo();
+  }
 }
