@@ -11,18 +11,19 @@ export class ChatComponent implements AfterViewChecked, AfterViewInit {
   public mensagens: Object[] = [];
   public mensagemInserir: string = '';
 
-
   @ViewChild('scrollMe') private scrollContainer: ElementRef;
 
   constructor(private _chatService: ChatService) {
-    this._chatService.server.on('messages', m => this.mensagens.push(m));
+
   }
 
   ngAfterViewInit() {
+    this.checkServerReceiver();
     this.scrollToBottom();
   }
 
   ngAfterViewChecked() {
+    this.checkServerReceiver();
     this.scrollToBottom();
   }
 
@@ -51,6 +52,15 @@ export class ChatComponent implements AfterViewChecked, AfterViewInit {
   public onKeyUp(keyboardEvent: KeyboardEvent): void {
     if (keyboardEvent.keyCode === 13 && keyboardEvent.shiftKey === false) {
       this.mensagemInserir = '';
+    }
+  }
+
+  private checkServerReceiver() {
+    if (this._chatService.server === null) {
+      this.mensagens = [];
+    } else if (this._chatService.receivingFromServer === false) {
+      this._chatService.server.on('messages', m => this.mensagens.push(m));
+      this._chatService.receivingFromServer = true;
     }
   }
 }

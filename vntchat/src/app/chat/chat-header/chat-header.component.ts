@@ -29,7 +29,7 @@ export class ChatHeaderComponent implements OnInit {
   }
 
   public logout(): void {
-    sessionStorage.removeItem('nome');
+    this._chatService.logOut();
     this.clearUserInfo();
   }
 
