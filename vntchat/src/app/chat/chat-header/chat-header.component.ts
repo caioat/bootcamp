@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatHeaderComponent implements OnInit {
 
-  public usuario: string;
+  public user: string;
   public logTime: Date;
 
   constructor(private _chatService: ChatService) {
@@ -19,12 +19,12 @@ export class ChatHeaderComponent implements OnInit {
   }
 
   private fillUserInfo(): void {
-    this.usuario = this._chatService.nomeUsuario;
+    this.user = this._chatService.username;
     this.logTime = this._chatService.loggedTime;
   }
 
   private clearUserInfo(): void {
-    this.usuario = null;
+    this.user = null;
     this.logTime = null;
   }
 

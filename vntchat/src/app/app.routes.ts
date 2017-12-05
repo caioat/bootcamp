@@ -1,11 +1,11 @@
 import { ChatComponent } from './chat/chat.component';
-import { SobreComponent } from './sobre/sobre.component';
+import { AboutComponent } from './about/about.component';
 import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', component: ChatComponent },
   { path: 'chat', component: ChatComponent },
-  { path: 'sobre', component: SobreComponent },
+  { path: 'about', component: AboutComponent },
   { path: '**', component: ChatComponent }
 ];
 

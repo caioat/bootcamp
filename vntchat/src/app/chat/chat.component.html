@@ -1,14 +1,14 @@
 <ul class="messageList list-group" #scrollMe>
-    <app-chat-item *ngFor="let mensagemObj of mensagens" [mensagem]="mensagemObj">
+    <app-chat-item *ngFor="let messageObj of messages" [message]="messageObj">
     </app-chat-item>
 </ul>
 
-<textarea placeholder="Escreva sua mensagem aqui..." rows="5"
-          [(ngModel)]="mensagemInserir"
+<textarea placeholder="Write your message here..." rows="5"
+          [(ngModel)]="typedMessage"
           (keydown)="onKeyDown($event)"
           (keyup)="onKeyUp($event)">
 </textarea>
 
-<p>Número de caracteres: {{ mensagemInserir.length }}</p>
+<p>Number of characters: {{ typedMessage.length }}</p>
 
-<button class="btn btn-primary" (click)="enviaMensagem()">Enviar</button>
+<button class="btn btn-primary" (click)="sendMessage()">Enviar</button>

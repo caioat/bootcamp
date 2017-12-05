@@ -2,10 +2,10 @@
   <div>
     <h1>Chat Bootcamp</h1>
 
-    <div *ngIf="usuario != null;then showLogoutButton else showLoginButton"></div>
+    <div *ngIf="user != null;then showLogoutButton else showLoginButton"></div>
     <ng-template #showLogoutButton>
       <button class="btn btn-primary" style="float: right;" (click)="logout()">Logout</button>
-      <p>Welcome {{ usuario }}!</p>
+      <p>Welcome {{ user }}!</p>
       <p>Last login: {{ logTime | date:"MM/dd/yyyy HH:mm:ss a" }}</p>
     </ng-template>
     <ng-template #showLoginButton>
@@ -15,5 +15,5 @@
   </div>
 
   <a [routerLink]="'/chat'">Chat</a>
-  <a [routerLink]="'/sobre'">Sobre</a>
+  <a [routerLink]="'/about'">About</a>
 </div>

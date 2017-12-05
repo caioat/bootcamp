@@ -10,8 +10,8 @@ import { ChatItemComponent } from './chat/chat-item/chat-item.component';
 import { ChatService } from './chat/chat.service';
 import { ChatHeaderComponent } from './chat/chat-header/chat-header.component';
 import { routing } from './app.routes';
-import { SobreComponent } from './sobre/sobre.component';
-import { ConnectionService } from './sobre/connection.service';
+import { AboutComponent } from './about/about.component';
+import { ConnectionService } from './about/connection.service';
 
 
 @NgModule({
@@ -20,7 +20,7 @@ import { ConnectionService } from './sobre/connection.service';
     ChatComponent,
     ChatItemComponent,
     ChatHeaderComponent,
-    SobreComponent
+    AboutComponent
   ],
   imports: [
     BrowserModule,

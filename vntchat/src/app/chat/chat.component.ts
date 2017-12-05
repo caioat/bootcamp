@@ -8,8 +8,8 @@ import { Component, AfterViewChecked, AfterViewInit, ViewChild, ElementRef} from
 })
 export class ChatComponent implements AfterViewChecked, AfterViewInit {
 
-  public mensagens: Object[] = [];
-  public mensagemInserir: string = '';
+  public messages: Object[] = [];
+  public typedMessage = '';
 
   @ViewChild('scrollMe') private scrollContainer: ElementRef;
 
@@ -31,35 +31,35 @@ export class ChatComponent implements AfterViewChecked, AfterViewInit {
     this.scrollContainer.nativeElement.scrollTop = this.scrollContainer.nativeElement.scrollHeight;
   }
 
-  public enviaMensagem(): void {
+  public sendMessage(): void {
     const obj = {
-      message: this.mensagemInserir,
-      author: this._chatService.nomeUsuario
+      message: this.typedMessage,
+      author: this._chatService.username
     };
 
     this._chatService.server.emit('messages', obj);
 
-    this.mensagemInserir = '';
+    this.typedMessage = '';
   }
 
   public onKeyDown(keyboardEvent: KeyboardEvent): void {
     if (keyboardEvent.keyCode === 13 && keyboardEvent.shiftKey === false) {
       console.log(keyboardEvent);
-      this.enviaMensagem();
+      this.sendMessage();
     }
   }
 
   public onKeyUp(keyboardEvent: KeyboardEvent): void {
     if (keyboardEvent.keyCode === 13 && keyboardEvent.shiftKey === false) {
-      this.mensagemInserir = '';
+      this.typedMessage = '';
     }
   }
 
   private checkServerReceiver() {
     if (this._chatService.server === null) {
-      this.mensagens = [];
+      this.messages = [];
     } else if (this._chatService.receivingFromServer === false) {
-      this._chatService.server.on('messages', m => this.mensagens.push(m));
+      this._chatService.server.on('messages', m => this.messages.push(m));
       this._chatService.receivingFromServer = true;
     }
   }

@@ -8,11 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ChatItemComponent {
 
-  @Input() public mensagem: Object;
+  @Input() public message: Object;
 
   constructor(private _chatService: ChatService) { }
 
   public selfMessage(): boolean {
-    return this.mensagem['author'] === this._chatService.nomeUsuario;
+    return this.message['author'] === this._chatService.username;
   }
 }

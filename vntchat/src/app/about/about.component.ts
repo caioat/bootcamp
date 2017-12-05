@@ -2,11 +2,11 @@ import { ConnectionService } from './connection.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-sobre',
-  templateUrl: './sobre.component.html',
-  styleUrls: ['./sobre.component.css']
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.css']
 })
-export class SobreComponent implements OnInit {
+export class AboutComponent implements OnInit {
 
   public users;
 
