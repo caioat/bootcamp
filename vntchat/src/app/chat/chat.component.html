@@ -3,12 +3,13 @@
     </app-chat-item>
 </ul>
 
-<textarea placeholder="Write your message here..." rows="5"
+<textarea placeholder="Write your message here..." rows="3"
           [(ngModel)]="typedMessage"
           (keydown)="onKeyDown($event)"
           (keyup)="onKeyUp($event)">
 </textarea>
 
-<p>Number of characters: {{ typedMessage.length }}</p>
-
-<button class="btn btn-primary" (click)="sendMessage()">Send</button>
+<p>
+  <button class="btn btn-primary" (click)="sendMessage()">Send</button>
+  Number of characters: {{ typedMessage.length }}
+</p>

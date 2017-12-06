@@ -30,3 +30,25 @@
     </ul>
   </div>
 </header>
+
+<!--
+<div class="jumbotron">
+  <div>
+    <h1>Chat Bootcamp</h1>
+
+    <div *ngIf="user != null;then showLogoutButton else showLoginButton"></div>
+    <ng-template #showLogoutButton>
+      <button class="btn btn-primary" style="float: right;" (click)="logout()">Logout</button>
+      <p>Welcome {{ user }}!</p>
+      <p>Last login: {{ logTime | date:"MM/dd/yyyy HH:mm:ss a" }}</p>
+    </ng-template>
+    <ng-template #showLoginButton>
+      <button class="btn btn-primary" style="float: right;" (click)="login()">Login</button>
+      <p>Welcome! Please log in to start chatting!</p>
+    </ng-template>
+  </div>
+
+  <a [routerLink]="'/chat'">Chat</a>
+  <a [routerLink]="'/about'">About</a>
+</div>
+-->
