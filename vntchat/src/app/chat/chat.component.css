@@ -1,6 +1,6 @@
 textarea{
   width: 100%;
-  resize: vertical;
+  resize: none;
 }
 
 .messageList {

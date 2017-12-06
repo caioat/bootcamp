@@ -58,9 +58,9 @@ export class ChatComponent implements AfterViewChecked, AfterViewInit {
   private checkServerReceiver() {
     if (this._chatService.server === null) {
       this.messages = [];
-    } else if (this._chatService.receivingFromServer === false) {
+    } else if (this._chatService.connected === false) {
       this._chatService.server.on('messages', m => this.messages.push(m));
-      this._chatService.receivingFromServer = true;
+      this._chatService.connected = true;
     }
   }
 }

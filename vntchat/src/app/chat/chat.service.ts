@@ -10,7 +10,7 @@ export class ChatService {
   private serverURL = 'http://bootcamp.us-east-1.elasticbeanstalk.com/';
   //private serverURL: string = 'http://172.24.30.24:3000/';
   public server: any;
-  public receivingFromServer = false;
+  public connected = false;
 
   get username(): string {
     return this.user;
@@ -48,7 +48,7 @@ export class ChatService {
 
     this.server.close();
     this.server = null;
-    this.receivingFromServer = false;
+    this.connected = false;
   }
 
 }
