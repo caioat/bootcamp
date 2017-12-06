@@ -1,19 +1,32 @@
-<div class="jumbotron">
-  <div>
-    <h1>Chat Bootcamp</h1>
+<header class="header-login-signup">
+  <div class="header-limiter">
+    <h1><a href="#">Vnt<span>Chat</span></a></h1>
 
-    <div *ngIf="user != null;then showLogoutButton else showLoginButton"></div>
-    <ng-template #showLogoutButton>
-      <button class="btn btn-primary" style="float: right;" (click)="logout()">Logout</button>
-      <p>Welcome {{ user }}!</p>
-      <p>Last login: {{ logTime | date:"MM/dd/yyyy HH:mm:ss a" }}</p>
-    </ng-template>
-    <ng-template #showLoginButton>
-      <button class="btn btn-primary" style="float: right;" (click)="login()">Login</button>
-      <p>Welcome! Please log in to start chatting!</p>
-    </ng-template>
+    <nav>
+      <a href="#" [routerLink]="'/chat'">Chat</a>
+      <a href="#" class="selected" [routerLink]="'/about'">About</a>
+    </nav>
+
+    <ul>
+      <div *ngIf="user != null;then showLogoutButton else showLoginButton"></div>
+      <ng-template #showLogoutButton>
+        <ul>
+          <li><a href="#" (click)="logout()">Logout</a></li>
+        </ul>
+        <li>
+          <p>Welcome {{ user }}!</p>
+          <p>Last login: {{ logTime | date:"MM/dd/yyyy HH:mm:ss a" }}</p>
+        </li>
+      </ng-template>
+      <ng-template #showLoginButton>
+        <ul>
+          <li><a href="#" (click)="login()">Login</a></li>
+        </ul>
+        <li>
+          <p>Welcome!</p>
+          <p>Please log in to start chatting!</p>
+        </li>
+      </ng-template>
+    </ul>
   </div>
-
-  <a [routerLink]="'/chat'">Chat</a>
-  <a [routerLink]="'/about'">About</a>
-</div>
+</header>

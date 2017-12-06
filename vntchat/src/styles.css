@@ -1,1 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import url("../external_resources/header-login-signup.css");
+@import url("../external_resources/footer-distributed.css");
