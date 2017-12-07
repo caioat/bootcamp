@@ -64,7 +64,7 @@ footer{
 @media (max-width: 600px) {
 
 	footer { position: static; }
-	
+
 	.footer-distributed .footer-left,
 	.footer-distributed .footer-right{
 		text-align: center;

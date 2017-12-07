@@ -14,7 +14,7 @@ export class ChatComponent implements AfterViewChecked, AfterViewInit {
   @ViewChild('scrollMe') private scrollContainer: ElementRef;
 
   constructor(private _chatService: ChatService) {
-
+    this.forceReconnectionAfterTabChange();
   }
 
   ngAfterViewInit() {
@@ -60,6 +60,14 @@ export class ChatComponent implements AfterViewChecked, AfterViewInit {
     } else if (this._chatService.connected === false) {
       this._chatService.server.on('messages', m => this.messages.push(m));
       this._chatService.connected = true;
+    }
+  }
+
+  private forceReconnectionAfterTabChange() {
+    if (this._chatService.server !== null && this._chatService.connected === true) {
+      const tempUsername = this._chatService.username;
+      this._chatService.logOut();
+      this._chatService.logIn(tempUsername);
     }
   }
 }
