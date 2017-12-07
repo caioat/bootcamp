@@ -44,7 +44,6 @@ export class ChatComponent implements AfterViewChecked, AfterViewInit {
 
   public onKeyDown(keyboardEvent: KeyboardEvent): void {
     if (keyboardEvent.keyCode === 13 && keyboardEvent.shiftKey === false) {
-      console.log(keyboardEvent);
       this.sendMessage();
     }
   }

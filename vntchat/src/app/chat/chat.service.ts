@@ -6,11 +6,13 @@ export class ChatService {
 
   private user: string;
   private logTime: Date;
-  private sessionStorageKeyName = 'name';
   private serverURL = 'http://bootcamp.us-east-1.elasticbeanstalk.com/';
   //private serverURL: string = 'http://172.24.30.24:3000/';
   public server: any;
   public connected = false;
+
+  private localStorageKeyName = 'name';
+  private localStorageKeyLogTime = 'logTime';
 
   get username(): string {
     return this.user;
@@ -22,26 +24,29 @@ export class ChatService {
 
   constructor() {
     this.server = null;
+    this.logIn('');
   }
 
   public logIn(typedUsername: string): void {
-    if (!sessionStorage.getItem(this.sessionStorageKeyName)) {
+    if (!localStorage.getItem(this.localStorageKeyName)) {
       if (typedUsername != null && typedUsername.length > 0) {
         this.user = typedUsername;
         this.logTime = new Date();
-        sessionStorage.setItem(this.sessionStorageKeyName, this.user);
+        localStorage.setItem(this.localStorageKeyName, this.user);
+        localStorage.setItem(this.localStorageKeyLogTime, this.logTime.toString());
       } else {
         return;
       }
     } else {
-      this.user = sessionStorage.getItem(this.sessionStorageKeyName);
+      this.user = localStorage.getItem(this.localStorageKeyName);
+      this.logTime = new Date(localStorage.getItem(this.localStorageKeyLogTime));
     }
 
     this.server = io(this.serverURL);
   }
 
   public logOut(): void {
-    sessionStorage.removeItem(this.sessionStorageKeyName);
+    localStorage.removeItem(this.localStorageKeyName);
     this.user = null;
     this.logTime = null;
 
