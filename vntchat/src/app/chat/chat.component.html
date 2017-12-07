@@ -3,13 +3,17 @@
     </app-chat-item>
 </ul>
 
-<textarea placeholder="Write your message here..." rows="3"
-          [(ngModel)]="typedMessage"
-          (keydown)="onKeyDown($event)"
-          (keyup)="onKeyUp($event)">
-</textarea>
+<div *ngIf="messages.length > 0;then showTypeMessageSection"></div>
 
-<p style="padding: 0 384px; margin-top: 10px">
-  <button class="btn btn-primary" (click)="sendMessage()">Send</button>
-  Number of characters: {{ typedMessage.length }}
-</p>
+<ng-template #showTypeMessageSection>
+  <textarea placeholder="Write your message here..." rows="3"
+            [(ngModel)]="typedMessage"
+            (keydown)="onKeyDown($event)"
+            (keyup)="onKeyUp($event)">
+  </textarea>
+
+  <p style="padding: 0 378px; margin-top: 10px">
+    <button class="btn btn-primary" (click)="sendMessage()">Send</button>
+    Number of characters: {{ typedMessage.length }}
+  </p>
+</ng-template>
