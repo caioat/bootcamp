@@ -1,5 +1,45 @@
+<div class="container">
+  <div class="chatbody">
+    <div class="panel panel-primary">
+      <div class="panel-body msg_container_base">
+        <div *ngIf="selfMessage();then myMessage else notMyMessage"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #myMessage>
+  <div class="row msg_container base_sent">
+    <div class="col-md-10 col-xs-10">
+      <div class="messages msg_sent">
+        <p>{{ message['message'] }}</p>
+        <time>{{ message['author'] }} • {{ message['time'] | date:"MM/dd/yyy HH:mm:ss a" }}</time>
+      </div>
+    </div>
+    <div class="col-md-2 col-xs-2 avatar">
+      <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive "/>
+    </div>
+  </div>
+</ng-template>
+<ng-template #notMyMessage>
+  <div class="row msg_container base_receive">
+    <div class="col-md-2 col-xs-2 avatar">
+      <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive "/>
+    </div>
+    <div class="col-md-10 col-xs-10">
+      <div class="messages msg_receive">
+        <p>{{ message['message'] }}</p>
+        <time>{{ message['author'] }} • {{ message['time'] | date:"MM/dd/yyy HH:mm:ss a" }}</time>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+<!--
 <li class="list-group-item" [ngClass]="{'my-message': selfMessage(), 'not-my-message': !selfMessage()}">
   <p><strong>{{ message['author'] }}</strong></p>
   <p>{{ message['message'] }}</p>
   <p>{{ message['time'] | date:"MM/dd/yyy HH:mm:ss a" }}</p>
 </li>
+-->
