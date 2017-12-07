@@ -24,11 +24,10 @@ export class ChatService {
     this.server = null;
   }
 
-  public logIn(): void {
+  public logIn(typedUsername: string): void {
     if (!sessionStorage.getItem(this.sessionStorageKeyName)) {
-      const promptReturn = prompt('What\'s your name?');
-      if (promptReturn != null && promptReturn.length > 0) {
-        this.user = promptReturn;
+      if (typedUsername != null && typedUsername.length > 0) {
+        this.user = typedUsername;
         this.logTime = new Date();
         sessionStorage.setItem(this.sessionStorageKeyName, this.user);
       } else {

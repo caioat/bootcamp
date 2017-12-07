@@ -19,9 +19,8 @@
         </li>
       </ng-template>
       <ng-template #showLoginButton>
-        <ul>
-          <li><a href="#" (click)="login()">Login</a></li>
-        </ul>
+        <ul><li><a href="#" (click)="login()">Login</a></li></ul>
+        <ul><li><textarea placeholder="Username" [(ngModel)]="typedUsername"></textarea></li></ul>
         <li>
           <p>Welcome!</p>
           <p>Please log in to start chatting!</p>

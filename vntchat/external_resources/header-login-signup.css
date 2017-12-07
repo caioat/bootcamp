@@ -77,6 +77,15 @@
 	opacity: 1;
 }
 
+.header-login-signup .header-limiter ul li:first-child textarea {
+  font-weight: bold;
+  color: white;
+	background-color: #3a3c3e;
+	resize: none;
+  border-radius: 3px;
+  padding: 8px 6px;
+}
+
 /* The sign up button */
 
 .header-login-signup .header-limiter ul li:last-child a {
@@ -84,7 +93,7 @@
 	background-color: #3a3c3e;
 	padding: 10px 15px;
 	border-radius: 3px;
-	line-height: 3;
+	line-height: 48px;
 }
 
 /* Making the header responsive */

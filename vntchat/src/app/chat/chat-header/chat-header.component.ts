@@ -10,6 +10,7 @@ export class ChatHeaderComponent implements OnInit {
 
   public user: string;
   public logTime: Date;
+  public typedUsername = '';
 
   constructor(private _chatService: ChatService) {
     this.fillUserInfo();
@@ -34,7 +35,8 @@ export class ChatHeaderComponent implements OnInit {
   }
 
   public login(): void {
-    this._chatService.logIn();
+    this._chatService.logIn(this.typedUsername);
     this.fillUserInfo();
+    this.typedUsername = '';
   }
 }
